@@ -1,13 +1,12 @@
 <div align="center">
-
-<br>
-
+   
 ![HTML Badge](https://img.shields.io/badge/-HTML-3B4252?style=flat&logo=html5&logoColor=A3BE8C)
 ![CSS Badge](https://img.shields.io/badge/-CSS-3B4252?style=flat&logo=css3&logoColor=B48EAD)
 ![JavaScript Badge](https://img.shields.io/badge/-JavaScript-3B4252?style=flat&logo=javascript&logoColor=5E81AC)
 
 </div
 
+<br>
 <br>
 
 > Hej, you found out my profile README banner is made with code!
