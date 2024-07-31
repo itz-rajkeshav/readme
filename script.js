@@ -1,11 +1,12 @@
 document.addEventListener("DOMContentLoaded", () => {
   const codeWrapper = document.getElementById("codeWrapper");
   const colors = ['#88C0D0', '#81A1C1', '#5E81AC', '#4C566A'];
-  const lineHeight = 18; // Adjust line height for spacing
+  const lineHeight = 18;                            // Spacing for Code Line Blocks 
   const containerHeight = document.querySelector('.code-container').clientHeight;
   let currentTransform = 0;
   let indentLevel = 0;
   const keywords = ['AI', 'DATA', 'MACHINE LEARNING', 'NLP', 'OCR', 'MIR', 'PYTHON'];
+
 
   function addLine() {
       const lineWrapper = document.createElement('div');
@@ -24,11 +25,12 @@ document.addEventListener("DOMContentLoaded", () => {
       }
       lineContainer.style.marginLeft = `${30 + indentLevel}px`; // Adjust marginLeft based on indent level
 
+
       // Create "words" for the line
-      const numberOfWords = Math.floor(Math.random() * 5) + 3; // Random number of words
-      const longerLineProbability = 0.2; // 20% probability for a longer line
+      const numberOfWords = Math.floor(Math.random() * 5) + 3;  // Random number of words
+      const longerLineProbability = 0.2;                        // 20% probability for a longer line
       const isLongerLine = Math.random() < longerLineProbability;
-      const keywordProbability = 0.1; // 10% probability to replace a block with a keyword
+      const keywordProbability = 0.1;                           // 10% probability to replace a block with a keyword
 
       for (let i = 0; i < numberOfWords; i++) {
           if (Math.random() < keywordProbability) {
@@ -73,5 +75,5 @@ document.addEventListener("DOMContentLoaded", () => {
       }, delay);
   }
 
-  typeCode(50, 200); // Adjust number of lines and delay as needed
+  typeCode(50, 200);    // number of Lines & Delay
 });

@@ -26,11 +26,11 @@ body, html {
 .code-wrapper {
     display: flex;
     flex-direction: column;
-    padding: 20px; /* Adjust padding-left to move start of lines to the right */
+    padding: 20px; 
     box-sizing: border-box;
     color: #D8DEE9;
     font-size: 1em;
-    line-height: 1.2; /* Reduce line-height to decrease space between lines */
+    line-height: 1.2; 
     transform: translateY(0);
     transition: transform 0.1s linear;
 }
@@ -39,7 +39,7 @@ body, html {
     display: flex;
     align-items: center;
     position: relative;
-    margin-bottom: 5px; /* Reduce margin-bottom to decrease space between lines */
+    margin-bottom: 5px; 
 }
 
 .code-line {
@@ -48,7 +48,7 @@ body, html {
     display: inline-block;
     margin-right: 5px; /* Space between words */
     vertical-align: middle; /* Align text vertically */
-    line-height: 12px; /* Ensure line-height matches the height */
+    line-height: 12px; 
     font-family: 'Special Elite', monospace;
     padding-top: 5px; /* Adjust padding to align text with blocks */
 }
@@ -57,40 +57,40 @@ body, html {
     width: 12px;
     height: 12px;
     background-color: #5E81AC;
-    margin-right: 10px; /* Maintain distance between numbers and vertical line */
+    margin-right: 10px;
     vertical-align: middle; /* Align text vertically */
     line-height: 12px; /* Ensure line-height matches the height */
     font-family: 'Special Elite', monospace;
-    padding-top: 1px; /* Adjust padding to align text with blocks */
+    padding-top: 1px; 
 }
 
 .vertical-line {
-    width: 5px; /* Make the line thicker */
+    width: 5px;
     height: 100%;
     background-color: #5E81AC;
     position: absolute;
-    left: 55px; /* Position vertical line */
+    left: 55px;
     top: 0;
 }
 
 .header-content {
-    position: absolute; /* Use absolute positioning */
-    top: 0; /* Align to the top */
-    right: 20px; /* Align to the right */
+    position: absolute; 
+    top: 0; 
+    right: 20px; 
     z-index: 1;
     color: #D8DEE9;
-    text-align: right; /* Align text to the right */
-    padding: 20px; /* Add padding to the top and right */
+    text-align: right; 
+    padding: 20px;
     box-sizing: border-box;
 }
 
 .header-content h1 {
     margin: 0;
-    font-size: 3em; /* Adjust font size if necessary */
+    font-size: 3em;
     font-family: 'Special Elite', monospace;
     white-space: nowrap; /* Prevent line break */
-    overflow: hidden; /* Hide overflow */
-    border-right: 0.15em solid #D8DEE9; /* Cursor */
+    overflow: hidden; 
+    border-right: 0.15em solid #D8DEE9;  /* Cursor */
     animation: typing 3.5s steps(30, end), blink-caret 0.75s step-end infinite;
 }
 
@@ -102,7 +102,7 @@ body, html {
     text-align: right;
     font-family: 'Special Elite', monospace;
     white-space: nowrap; /* Prevent line break */
-    overflow: hidden; /* Hide overflow */
+    overflow: hidden;
 }
 
 /* Typing effect */
