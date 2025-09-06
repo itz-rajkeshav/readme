@@ -130,5 +130,5 @@ document.addEventListener("DOMContentLoaded", () => {
     }, delay);
   }
 
-  typeCode(50, 200); // number of lines & delay
+  typeCode(100, 150); // More lines, faster for better GIF
 });
