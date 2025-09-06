@@ -4,7 +4,31 @@ body, html {
     width: 100%;
     height: 100%;
     font-family: 'Special Elite', monospace;
-    background-color: #2E3440;
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #334155 100%);
+    overflow-x: hidden;
+    position: relative;
+}
+
+/* Matrix-style background animation */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        linear-gradient(90deg, transparent 98%, rgba(88, 166, 255, 0.03) 100%),
+        linear-gradient(0deg, transparent 98%, rgba(88, 166, 255, 0.03) 100%);
+    background-size: 50px 50px;
+    animation: matrixMove 20s linear infinite;
+    pointer-events: none;
+    z-index: 0;
+}
+
+@keyframes matrixMove {
+    0% { transform: translate(0, 0); }
+    100% { transform: translate(50px, 50px); }
 }
 
 .header {
@@ -12,6 +36,28 @@ body, html {
     width: 100%;
     height: 300px;
     overflow: hidden;
+    background: linear-gradient(45deg, rgba(30, 58, 138, 0.1) 0%, rgba(37, 99, 235, 0.05) 100%);
+    border-bottom: 1px solid rgba(30, 58, 138, 0.3);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    z-index: 1;
+}
+
+/* Terminal-style cursor animation */
+.header::after {
+    content: '';
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    width: 8px;
+    height: 12px;
+    background: #58a6ff;
+    animation: terminalBlink 1s infinite;
+    z-index: 2;
+}
+
+@keyframes terminalBlink {
+    0%, 50% { opacity: 1; }
+    51%, 100% { opacity: 0; }
 }
 
 .code-container {
@@ -21,6 +67,42 @@ body, html {
     width: 100%;
     height: 100%;
     overflow: hidden;
+    z-index: 1;
+}
+
+/* Floating code symbols */
+.code-container::before {
+    content: '</> { } [ ] ( ) ; : = + - * /';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    color: rgba(88, 166, 255, 0.05);
+    font-size: 12px;
+    font-family: 'Special Elite', monospace;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    animation: floatCode 30s linear infinite;
+    pointer-events: none;
+    z-index: 0;
+}
+
+@keyframes floatCode {
+    0% { 
+        transform: translateY(100vh) rotate(0deg);
+        opacity: 0;
+    }
+    10% { 
+        opacity: 0.1;
+    }
+    90% { 
+        opacity: 0.1;
+    }
+    100% { 
+        transform: translateY(-100vh) rotate(360deg);
+        opacity: 0;
+    }
 }
 
 .code-wrapper {
@@ -28,11 +110,37 @@ body, html {
     flex-direction: column;
     padding: 20px; 
     box-sizing: border-box;
-    color: #D8DEE9;
+    color: #c9d1d9;
     font-size: 1em;
     line-height: 1.2; 
     transform: translateY(0);
     transition: transform 0.1s linear;
+    position: relative;
+    z-index: 2;
+}
+
+/* Subtle scanline effect */
+.code-wrapper::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        transparent 0%,
+        rgba(88, 166, 255, 0.02) 50%,
+        transparent 100%
+    );
+    background-size: 100% 4px;
+    animation: scanline 2s linear infinite;
+    pointer-events: none;
+    z-index: 1;
+}
+
+@keyframes scanline {
+    0% { transform: translateY(-100%); }
+    100% { transform: translateY(100vh); }
 }
 
 .code-line-wrapper {
@@ -43,34 +151,62 @@ body, html {
 }
 
 .code-line {
-    height: 12px;
+    height: 16px;
     margin: 5px 0;
     display: inline-block;
-    margin-right: 5px; /* Space between words */
+    margin-right: 8px; /* Space between words */
     vertical-align: middle; /* Align text vertically */
-    line-height: 12px; 
+    line-height: 16px; 
     font-family: 'Special Elite', monospace;
-    padding-top: 5px; /* Adjust padding to align text with blocks */
+    padding: 2px 6px; /* Better padding for text */
+    border-radius: 3px;
+    transition: all 0.2s ease;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+    color: #ffffff;
+    text-shadow: 0 0 3px rgba(0, 0, 0, 0.9);
+    font-size: 11px;
+    font-weight: bold;
+    min-width: 20px;
+}
+
+.code-line:hover {
+    transform: scale(1.02);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    opacity: 0.9;
+    color: #ffffff;
 }
 
 .line-number {
-    width: 12px;
-    height: 12px;
-    background-color: #5E81AC;
-    margin-right: 10px;
+    width: 16px;
+    height: 16px;
+    background: linear-gradient(45deg, #1e3a8a, #2563eb);
+    margin-right: 12px;
     vertical-align: middle; /* Align text vertically */
-    line-height: 12px; /* Ensure line-height matches the height */
+    line-height: 16px; /* Ensure line-height matches the height */
     font-family: 'Special Elite', monospace;
     padding-top: 1px; 
+    border-radius: 3px;
+    border: 1px solid rgba(30, 58, 138, 0.5);
+    color: #ffffff;
+    font-size: 9px;
+    text-align: center;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 8px rgba(30, 58, 138, 0.3);
 }
 
 .vertical-line {
-    width: 5px;
+    width: 3px;
     height: 100%;
-    background-color: #5E81AC;
+    background: linear-gradient(180deg, #1e3a8a 0%, #2563eb 50%, #1e3a8a 100%);
     position: absolute;
     left: 55px;
     top: 0;
+    border-radius: 2px;
+    border-left: 1px solid rgba(30, 58, 138, 0.5);
+    box-shadow: 0 0 10px rgba(30, 58, 138, 0.4);
 }
 
 .header-content {
@@ -78,7 +214,7 @@ body, html {
     top: 0; 
     right: 20px; 
     z-index: 1;
-    color: #D8DEE9;
+    color: #f0f6fc;
     text-align: right; 
     padding: 20px;
     box-sizing: border-box;
@@ -90,19 +226,23 @@ body, html {
     font-family: 'Special Elite', monospace;
     white-space: nowrap; /* Prevent line break */
     overflow: hidden; 
-    border-right: 0.15em solid #D8DEE9;  /* Cursor */
+    border-right: 0.15em solid #58a6ff;  /* Cursor */
     animation: typing 3.5s steps(30, end), blink-caret 0.75s step-end infinite;
+    color: #f0f6fc;
+    font-weight: 300;
 }
 
 .bio {
     position: absolute;
-    color: #D8DEE9;
+    color: #8b949e;
     bottom: 0px;
     right: 20px;
     text-align: right;
     font-family: 'Special Elite', monospace;
     white-space: nowrap; /* Prevent line break */
     overflow: hidden;
+    font-size: 0.9em;
+    opacity: 1;
 }
 
 /* Typing effect */
@@ -114,5 +254,16 @@ body, html {
 /* Blinking cursor */
 @keyframes blink-caret {
     from, to { border-color: transparent }
-    50% { border-color: #D8DEE9 }
+    50% { border-color: #58a6ff }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
