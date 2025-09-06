@@ -29,8 +29,6 @@ document.addEventListener("DOMContentLoaded", () => {
     "while",
     "return",
     "class",
-    "import",
-    "export",
     "async",
     "await",
     "try",
@@ -130,5 +128,5 @@ document.addEventListener("DOMContentLoaded", () => {
     }, delay);
   }
 
-  typeCode(100, 150); // More lines, faster for better GIF
+  typeCode(48, 80); // More lines, much faster for better GIF
 });
